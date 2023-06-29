@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="container">
+		<div id="#text-more" class="description">
+			<ul>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+			</ul>
+			<div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id amet quia expedita eligendi reiciendis iure quisquam dolorum odio deserunt voluptatibus totam nobis maiores, omnis accusamus repellendus delectus vel voluptas quidem?</div>
+		</div>
+		<div>
+			<button class="btn" data-target="#text-more">Learn more</button>
+		</div>
+	</div>
+	<div class="container">
+		<div id="#text-more1" class="description">
+			<ul>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+			</ul>
+			<div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id amet quia expedita eligendi reiciendis iure quisquam dolorum odio deserunt voluptatibus totam nobis maiores, omnis accusamus repellendus delectus vel voluptas quidem?</div>
+		</div>
+		<div>
+			<button class="btn" data-target="#text-more1">Learn more</button>
+		</div>
+	</div>
+	<div class="container">
+		<div id="#text-more2" class="description">
+			<ul>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+			</ul>
+			<div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id amet quia expedita eligendi reiciendis iure quisquam dolorum odio deserunt voluptatibus totam nobis maiores, omnis accusamus repellendus delectus vel voluptas quidem?</div>
+		</div>
+		<div>
+			<button class="btn" data-target="#text-more2">Learn more</button>
+		</div>
+	</div>
+	<style>
+		body {
+			background-color: rgba(0, 0, 0, 0.486);
+		}
+
+		.container {
+			max-width: 1140px;
+			margin: 0 auto;
+		}
+
+		.description {
+			padding: 0 18px;
+			max-height: 80px;
+			overflow: hidden;
+			transition: max-height 0.2s ease-out;
+			background-color: #f1f1f1;
+		}
+
+		.collapssible {
+			background-color: #777;
+			color: white;
+			cursor: pointer;
+			padding: 18px;
+			width: 320px;
+			border: none;
+			outline: none;
+			font-size: 16px;
+		}
+
+		.description.active {
+			background-color: #555;
+		}
+	</style>
+	<script>
+		// read more text
+		let coll = document.querySelectorAll('[data-target]')
+		for (let i = 0; i < coll.length; i++) {
+			coll[i].addEventListener('click', function () {
+				let self = event.currentTarget;
+				let valueAtribute = self.getAttribute('data-target');
+				let content = document.querySelector(`.description[id="${valueAtribute}"]`);
+				content.classList.toggle('active');
+				this.classList.toggle('active');
+				if (content.style.maxHeight) {
+					content.style.maxHeight = null;
+					this.textContent = 'Read more';
+				} else {
+					content.style.maxHeight = content.scrollHeight + 'px';
+					this.textContent = 'Cloze';
+				}
+			})
+		}
+
+	</script>
+</body>
+
+</html>

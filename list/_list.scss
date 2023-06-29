@@ -1,0 +1,19 @@
+.box {
+	padding: 100px 0px 0px 0px;
+}
+
+Ol {
+	counter-reset: list-num;
+	margin: 10px 0px 0px 0px;
+
+	li {
+		margin: 0px 0px 10px 0px;
+
+		&::before {
+			counter-increment: list-num;
+			content: counters(list-num, '.', decimal-leading-zero)'.';
+			margin: 0px 15px 0px 0px;
+		}
+
+	}
+}

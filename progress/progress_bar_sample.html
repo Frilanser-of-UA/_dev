@@ -1,0 +1,56 @@
+
+<html>
+<head>
+	<style>
+		.wrapper {
+			font-size:20px;
+			font-family: Arial, Helvetica, sans-serif;
+			display:flex;
+			justify-content:center;
+			margin:200px;
+		}
+
+		.progress {
+			width:50%;
+			position: relative;
+			display: flex;
+			height: 35px;
+			border: 1px solid #978FFF;
+			border-radius: 4px;
+			font-size: 20px;
+			overflow: hidden;
+		}
+
+		.progress > div {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.left {
+			width: 100%;
+			background: #978FFF;
+			color: white;
+		}
+
+		.right {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background: white;
+			color: black;
+			clip-path: inset(0 0 0 var(--percent));
+		}	
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="progress" style="--percent:52%">
+			<div class="left">value 52%</div>
+			<div class="right">value 52%</div>
+		</div>
+	</div>
+</body>
+</html>

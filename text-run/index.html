@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.marquee {
+			padding: 0px 0px 20px 0px;
+			overflow: hidden;
+			white-space: nowrap;
+			width: 50%;
+			margin: 0 auto;
+			display: flex;
+		}
+
+		.marquee p {
+			white-space: nowrap;
+			line-height: 120%;
+			font-size: 16px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="item-gas__marquee marquee">
+		<p>* Внимание! ☝Возможна контрактация части объема из общего объема реализации. * Внимание! ☝Возможна контрактация части объема из общего объема реализации.</p>
+	</div>
+
+
+	<script>
+		// run-text
+
+		function Marquee(speed) {
+			const parentSelector = document.querySelectorAll('.marquee').forEach(function (parentSelector) {
+				const clone = parentSelector.innerHTML;
+				const firstElement = parentSelector.children[0];
+				let i = 0;
+				console.log(firstElement);
+				parentSelector.insertAdjacentHTML('beforeend', clone);
+				parentSelector.insertAdjacentHTML('beforeend', clone);
+				setInterval(function () {
+					firstElement.style.marginLeft = `-${i}px`;
+					if (i > firstElement.clientWidth) {
+						i = 0;
+					}
+					i = i + speed;
+				}, 0);
+			});
+
+		}
+		//after window is completed load
+		//1 class selector for marquee
+		//2 marquee speed 0.2
+		window.addEventListener('load', Marquee(0.8));
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Animate text</title>
+	<style>
+		.full {
+			height: 100vh;
+			background-color: rgb(150, 128, 128);
+		}
+
+		.anim {
+			font-size: 34px;
+			text-align: center;
+			font-weight: 700;
+			/* overflow: hidden; */
+		}
+
+		.letter {
+			opacity: 1;
+			position: relative;
+			top: -50px;
+			opacity: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<div class="full"></div>
+		<div class="start-anim">
+			<p class="anim">Animate text</p>
+		</div>
+		<div class="full"></div>
+		<div class="start-anim">
+			<p class="anim">Animate text</p>
+		</div>
+		<div class="full"></div>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.1/dist/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"></script>
+	<script>
+
+		const textAnim = document.querySelectorAll('.anim');
+		const startAnim = document.querySelectorAll('.start-anim');
+		textAnim.forEach(function callback(textAnim, index, array) {
+			const letters = textAnim.innerHTML.split('');
+			textAnim.innerHTML = '';
+			const spanArray = letters.map(
+				letter => {
+					const item = document.createElement('span');
+					item.classList.add('letter');
+					item.innerHTML = letter;
+					textAnim.appendChild(item);
+					return item;
+				}
+			);
+		});
+
+
+
+		gsap.registerPlugin(ScrollTrigger)
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: startAnim,
+				start: '-100px center',
+				end: '+=200px bottom',
+				markers: true,
+				ease: 'linear',
+				repeat: 1
+			}
+		})
+		tl.to('.letter', {
+			top: 0,
+			opacity: 1,
+			duration: 0.5,
+			stagger: {
+				amount: 0.8
+			},
+		})
+
+		// const boxes = gsap.utils.toArray('.letter');
+		// boxes.forEach(box => {
+		// 	const tl = gsap.timeline({
+		// 		scrollTrigger: {
+		// 			trigger: box,
+		// 			start: '-5px center',
+		// 			end: '+=200px bottom',
+		// 			markers: true,
+		// 			ease: 'linear',
+		// 			repeat: 1
+		// 		}
+		// 	})
+		// 	tl.from(box, {
+		// 		top: 0,
+		// 		opacity: 1,
+		// 		duration: 0.5,
+		// 		delay: function (i, el) {
+		// 			return i * .05;
+		// 		}
+		// 		// stagger: {
+		// 		// 	amount: 0.8,
+		// 		// },
+		// 	})
+		// 	// gsap.to(box, {
+		// 	// 	scrollTrigger: {
+		// 	// 		trigger: box,
+		// 	// 		start: '-100px center',
+		// 	// 		end: '+=200px bottom',
+		// 	// 		markers: true,
+		// 	// 	},
+		// 	// 	top: 0,
+		// 	// 	opacity: 1,
+		// 	// 	duration: 0.5,
+		// 	// 	stagger: {
+		// 	// 		amount: 0.8
+		// 	// 	},
+
+		// 	// })
+		// });
+
+
+
+
+
+
+
+		// gsap.to('.letter', {
+		// 	scrollTrigger: {
+		// 		trigger: '.start-anim',
+		// 		start: '20% bottom',
+		// 		markers: true,
+		// 		end: '+=300px',
+		// 	},
+		// 	top: 0,
+		// 	opacity: 1,
+		// 	duration: 0.5,
+		// 	stagger: {
+		// 		amount: 0.8
+		// 	},
+		// });
+		// gsap.to('.letter', {
+		// 	scrollTrigger: {
+		// 		trigger: '.start-anim2',
+		// 		start: '20% bottom',
+		// 		markers: true,
+		// 		end: '+=300px',
+		// 	},
+		// 	top: 0,
+		// 	opacity: 1,
+		// 	duration: 0.5,
+		// 	stagger: {
+		// 		amount: 0.8
+		// 	},
+		// })
+	</script>
+</body>
+
+</html>
