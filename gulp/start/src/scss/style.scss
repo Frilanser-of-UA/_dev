@@ -1,0 +1,19 @@
+body {
+	background-color: #000;
+	background: url('@img/cover.jpg') 0 0 no-repeat;
+
+	@media (max-width: 768px) {
+		font-size: 20px;
+	}
+
+	p {
+		color: rebeccapurple;
+	}
+}
+
+@media (max-width: 768px) {
+	p {
+		color: #000;
+		display: flex;
+	}
+}

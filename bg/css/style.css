@@ -1,0 +1,127 @@
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				--w: 35vw;
+				--h: 50vh;
+				--border-r: 10%;
+				/* blur */
+				--blur: 200px;
+				/* colors */
+				--blue: #746dc5;
+				--pink-dark: #b152a1;
+				--pink: #cd6ebd;
+				--pink-light: #d779ab;
+				--orange: #ed9041;
+				--orange-light: #f9aa39;
+				/* animation */
+				--anim-bg: 30s;
+                --fly:30s;
+                /* blue start */
+                --anim1:1.5;
+                --anim3:2;
+                --anim5:2.5;
+                --anim7:3;
+                /* pink start */
+                --anim2:3;
+                --anim4:2.5;
+                --anim6:2;
+                --anim8:1.5;
+			}
+			main {
+				height: 300vh;
+			}
+			.bg {
+				height: 100vh;
+				position: relative;
+			}
+			.bg__wrapper {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				background-color: var(--blue);
+				animation: bg-1 var(--anim-bg) linear infinite alternate;
+                overflow: hidden;
+			}
+            .bg__wrapper::before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(var(--blur));
+                z-index: 2;
+            }
+			.bg__anim {
+				position: absolute;
+				width: var(--w);
+				height: var(--h);
+                top: 0;
+				left: 0;
+                transform-origin: center center;
+			}
+            .anim-1 {
+				top: 0;
+				left: 0;
+				animation: fly-1 calc(var(--fly) * var(--anim1)) linear infinite alternate;
+			}
+			.anim-2 {
+				top: 50%;
+				left: 0;
+				animation: fly-2 calc(var(--fly) * var(--anim2)) linear infinite alternate;
+			}
+			.anim-3 {
+				top: 50%;
+				left: 25%;
+                animation: fly-3 calc(var(--fly) * var(--anim3)) linear infinite alternate;
+
+			}
+			.anim-4 {
+				top: 0;
+				left: 25%;
+                animation: fly-4 calc(var(--fly) * var(--anim4)) linear infinite alternate;
+			}
+			.anim-5 {
+				top: 0;
+				left: 50%;
+                animation: fly-5 calc(var(--fly) * var(--anim5)) linear infinite alternate;
+			}
+			.anim-6 {
+				top: 50%;
+				left: 50%;
+                animation: fly-6 calc(var(--fly) * var(--anim6)) linear infinite alternate;
+
+			}
+			.anim-7 {
+				top: 50%;
+				left: 75%;
+                animation: fly-7 calc(var(--fly) * var(--anim7)) linear infinite alternate ;
+			}
+			.anim-8 {
+				top: 0;
+				left: 75%;
+                animation: fly-8 calc(var(--fly) * var(--anim8)) linear infinite alternate;
+			}
+			.bg__item {
+				height: 100%;
+				width: 100%;
+                overflow: hidden;
+				border-radius: var(--border-r);
+			}
+			.bg__item.start-blue {
+				background-color: var(--blue);
+				animation: bg-1 var(--anim-bg) linear infinite alternate;
+                opacity: 1;
+			}
+			.bg__item.start-pink {
+				background-color: var(--pink-dark);
+				animation: bg-2 var(--anim-bg) linear infinite alternate;
+                opacity: 0.76;
+			}

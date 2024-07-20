@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hover</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			font-family: sans-serif;
+		}
+
+		.menu {
+			width: 500px;
+			list-style: none;
+			padding: 0;
+			margin: 0 auto;
+			display: flex;
+			justify-content: center;
+			background-color: #ccc;
+			position: relative;
+			--left: 0px;
+			--width: 0px;
+		}
+
+		.menu:before {
+			content: '';
+			display: block;
+			position: absolute;
+			height: 3px;
+			bottom: 0;
+			transition: all .3s ease;
+			left: var(--left);
+			width: var(--width);
+			background-color: red;
+			opacity: 0;
+
+		}
+
+		.menu:hover:before {
+			opacity: 1;
+		}
+
+		.menu>li>a {
+			display: block;
+			padding: 1em;
+			color: inherit;
+			text-decoration: none;
+			position: relative;
+			z-index: 2;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<ul class="menu">
+			<li><a href="#">Каталог</a></li>
+			<li><a href="#">О компании</a></li>
+			<li><a href="#">Контакты</a></li>
+			<li><a href="#">Бу</a></li>
+		</ul>
+	</header>
+	<script>
+		let menuLi = document.querySelectorAll('.menu>li');
+		menuLi.forEach(item => {
+			item.addEventListener('mouseenter', function (e) {
+				let itemLeft = this.offsetLeft;
+				itemWidth = this.offsetWidth;
+				this.parentElement.style.setProperty('--left', itemLeft + 'px');
+				this.parentElement.style.setProperty('--width', itemWidth + 'px');
+			});
+		});
+	</script>
+</body>
+
+</html>

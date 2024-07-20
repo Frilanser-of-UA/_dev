@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gsap anim bg</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        footer {
+            height: 100vh;
+            position: relative;
+        }
+
+        .bg {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .bg__wrapper {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #6172c2;
+        }
+
+        .bg__item {
+            width: 40%;
+            height: 40%;
+            border-radius: 50%;
+            filter: blur(140px);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            transform-origin: top left;
+        }
+
+        .bg__item.blue {
+            background: #6172c2;
+            top: 25%;
+            right: 15%;
+        }
+
+        .bg__item.purple {
+            background: #b16dc0;
+            top: 50%;
+            left: 15%;
+        }
+
+        .bg__item.purple-2 {
+            background: #b16dc0;
+            top: 35%;
+            left: 75%;
+        }
+    </style>
+</head>
+
+<body>
+    <footer>
+        <div class="bg">
+            <div class="bg__wrapper">
+                <div class="bg__item blue"></div>
+                <div class="bg__item purple"></div>
+                <div class="bg__item purple-2"></div>
+                <div class="bg__item blue"></div>
+                <div class="bg__item purple"></div>
+                <div class="bg__item purple-2"></div>
+                <div class="bg__item blue"></div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script>
+        var tl = gsap.timeline();
+        tl.to(".bg__wrapper", {
+            duration: 4,
+            background: "random([#6172c2, #b16dc0, #6172c2])",
+            repeat: -1,
+            repeatRefresh: true,
+            ease: "none",
+        });
+        tl.to(".bg__item", {
+            duration: 10,
+            rotate: "random([0, 360])",
+            x: "random([50%, -50%])",
+            y: "random([-50%, 50%])",
+            scale: "random(1.2, 1.4, 0.7)",
+            repeat: -1,
+            ease: "none",
+            repeatRefresh: true,
+            stagger: { each: 1, from: "center" },
+        });
+    </script>
+
+</body>
+
+</html>

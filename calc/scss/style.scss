@@ -1,0 +1,70 @@
+@import "_null";
+body {
+    background-color: rgba(0, 0, 0, 0.8);
+    font-family: "Roboto";
+    font-size: 16px;
+}
+.page {
+    height: 100%;
+}
+.container {
+    height: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+.calc-wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calc {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #afa8a8;
+    flex: 0 1 460px;
+}
+.calc-head {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.calc-title {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 24px;
+    line-height: 120%;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.calc-input {
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    &:focus {
+        outline: none;
+        border-color: rgb(194, 133, 20);
+    }
+}
+.calc-body {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(4, 1fr);
+}
+.bt {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(214, 181, 181);
+}
+.bt-clean {
+    grid-column: auto/span 3;
+}
+.bt-equals {
+    grid-column: auto/span 2;
+}
+.bt-num {
+}
+.bt-operator {
+}

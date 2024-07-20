@@ -1,0 +1,36 @@
+$gap: (
+    _1440: 100px,
+    _1280: 30px,
+    _1024: 30px,
+    _768: 30px,
+    _576: 15px
+);
+
+$minWidth: 320;
+$maxWidth: 1920;
+$container-width: calc(1200px + (map-get($gap, _1440) * 2));
+
+.container {
+    width: 100%;
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 map-get($gap, _1440);
+    @include _1440 {
+        padding: 0 map-get($gap, _1440);
+    }
+    @include _1280 {
+        padding: 0 map-get($gap, _1280);
+    }
+    @include _1024 {
+        padding: 0 map-get($gap, _1024);
+    }
+    @include _768 {
+        padding: 0 map-get($gap, _768);
+    }
+    @include _576 {
+        padding: 0 map-get($gap, _576);
+    }
+    &.fluid {
+        max-width: unset;
+    }
+}

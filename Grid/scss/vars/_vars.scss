@@ -1,0 +1,92 @@
+//FIX<ПЕРЕМЕННЫЕ>========================================================
+//<Шрифт по умолчанию>
+$fontFamily: "DINPro";
+$fontSize: 20px;
+//</Шрифт по умолчанию>
+$minWidth: 320;
+$maxWidth: 1920;
+
+//!Медиазапросы для адаптива! delete
+$md0: 1699.98; // меньше 1700 до 1200
+$md1: 1199.98; // меньше 1200 до 1024
+$md2: 1023.98; // меньше 1024 до 768
+$md3: 767.98; // меньше 768 до 568
+$md4: 567.98; // меньше 568 до 375
+
+//! Медиазапросы для адаптива
+// Контейнер с отступами
+
+$maxWidthContainer: 1800;
+$px-max: 50px;
+$px-1: 30px;
+$px-2: 20px;
+$px-3: 10px;
+// !Контейнер с отступами! delete
+
+// ============d2=================
+// !
+// Основные цвета
+
+$border-color: #eeeeee;
+
+// Цвета текста;
+$text-primary: #353535;
+$text-secondary: #dfe2f5;
+$text-light: #aaa;
+
+// Цвета фона
+$bg-secondary: #eee;
+// !
+// ===========hogert==================
+$Gray-2: #706f6f;
+$Grin: #4a4a49;
+$gray-light: #959595;
+$gray: #696969;
+
+// =============================
+
+//Цвета
+$black: #242424;
+
+$gray-100: #f5f4f9;
+$gray-200: #eceffa;
+$gray-300: #dcdfec;
+$gray-400: #ced0da;
+$gray-500: $gray-light;
+$gray-600: $Gray-2;
+$gray-700: $gray;
+$gray-800: $Grin;
+$gray-900: #212229;
+
+$white: #ffffff;
+
+$blue: #007fc6;
+$green: #abcc58;
+$linear: linear-gradient(90deg, $blue 0%, $green 100%);
+
+$red-100: #fff4f5;
+$red-400: #eb5757;
+$red-500: #ff453a;
+
+$primary: $blue;
+$primary-500: #7a88ff;
+$primary-600: #466dc2;
+$primary-900: #3348ff;
+
+$secondary: #fff101;
+$danger: $red-500;
+$success: $green;
+//Цвета
+
+// Глобалие
+$mainColor: $gray-100;
+$bg-body: #242424;
+$header-py: 10px;
+$header-bg: #242424;
+// Глобалие
+// text editor
+$text-color: $gray-900;
+$text-color-link: $primary-900;
+// text editor end
+
+//</ПЕРЕМЕННЫЕ>======================================================

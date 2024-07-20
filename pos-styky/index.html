@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>stiky</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-size: 20px;
+			}
+			html,
+			body,
+			main,
+			section {
+				height: 100%;
+			}
+			.vh100 {
+				height: 100vh;
+				font-size: 100px;
+				text-align: center;
+			}
+			.container {
+				max-width: 1280px;
+				margin: 0 auto;
+				padding: 100px 20px;
+			}
+			.row {
+				display: flex;
+				gap: 20px;
+				height: 100%;
+			}
+			.left {
+				background-color: rgba(167, 97, 97, 1);
+				flex: 0 1 50%;
+				padding: 20px;
+				position: relative;
+			}
+			.right {
+				background-color: rgba(102, 97, 167, 1);
+				flex: 0 1 50%;
+
+				padding: 20px;
+				padding-top: 0;
+			}
+			.sticky {
+				position: fixed;
+				z-index: 5;
+			}
+			.stop {
+				position: relative;
+				z-index: 5;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section class="vh100"> scroll down</section>
+
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="left">left</div>
+						<div class="right">
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+							<div> right Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quisquam a soluta delectus inventore, maxime nulla eos excepturi, voluptate minima quae libero error vero dignissimos impedit harum dolores corrupti aliquam! </div>
+						</div>
+					</div>
+				</div>
+				<section class="vh100"></section>
+			</section>
+		</main>
+		<script>
+			// ============== fixed block===========================
+			function getWindowWidth() {
+				return window.screen.width;
+			}
+			if (getWindowWidth() > 1365) {
+				(function () {
+					let a = document.querySelector(".left"),
+						b = null,
+						P = 0;
+					if (a) {
+						window.addEventListener("scroll", Ascroll, false);
+						document.body.addEventListener("scroll", Ascroll, false);
+						function Ascroll() {
+							if (b == null) {
+								let Sa = getComputedStyle(a, ""),
+									s = "";
+								for (let i = 0; i < Sa.length; i++) {
+									if (Sa[i].indexOf("overflow") == 0 || Sa[i].indexOf("padding") == 0 || Sa[i].indexOf("border") == 0 || Sa[i].indexOf("outline") == 0 || Sa[i].indexOf("box-shadow") == 0 || Sa[i].indexOf("background") == 0) {
+										s += Sa[i] + ": " + Sa.getPropertyValue(Sa[i]) + "; ";
+									}
+								}
+								b = document.createElement("div");
+								b.style.cssText = s + " box-sizing: border-box; width: " + a.offsetWidth + "px;";
+								a.insertBefore(b, a.firstChild);
+								let l = a.childNodes.length;
+								for (let i = 1; i < l; i++) {
+									b.appendChild(a.childNodes[1]);
+								}
+								a.style.height = b.getBoundingClientRect().height + "px";
+								a.style.padding = "0";
+								a.style.border = "0";
+							}
+							let Ra = a.getBoundingClientRect(),
+								R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector(".row").getBoundingClientRect().bottom); // селектор блока, при достижении нижнего края которого нужно открепить прилипающий элемент
+							if (Ra.top - P <= 0) {
+								if (Ra.top - P <= R) {
+									b.className = "stop";
+									b.style.top = -R + "px";
+								} else {
+									b.className = "sticky";
+									b.style.top = P + "px";
+								}
+							} else {
+								b.className = "";
+								b.style.top = "";
+							}
+							window.addEventListener(
+								"resize",
+								function () {
+									a.children[0].style.width = getComputedStyle(a, "").width;
+								},
+								false
+							);
+						}
+					}
+				})();
+			}
+		</script>
+	</body>
+</html>

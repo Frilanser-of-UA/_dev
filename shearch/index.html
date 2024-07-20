@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+	<title>Search</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<style>
+		.--hide {
+			display: none;
+		}
+
+		.--elastic li {
+			font-size: 20px;
+		}
+
+		mark {
+			background-color: red;
+		}
+	</style>
+	<div id="app" v-cloak>
+		<main>
+			<!-- Навигация (якоря)-->
+			<aside class="">
+				<div class="p-2">
+					<input type="search" class="form-cotrol" id="search-nav" placeholder="Search">
+				</div>
+				<nav>
+					<ol class="--elastic">
+						<li>uttons</li>
+						<li>ext field</li>
+						<li>heckbox</li>
+						<li>adiobutton</li>
+						<li>ooltip</li>
+						<li>ulti-select</li>
+						<li>atapiker</li>
+						<li>ange</li>
+						<li>ropdown</li>
+						<li>badge</li>
+						<li>pagination</li>
+						<li>alert</li>
+						<li>logos</li>
+						<li>items</li>
+						<li>labels</li>
+					</ol>
+				</nav>
+			</aside>
+			<!-- Навигация (якоря) -->
+			<div style="max-width: 680px;" class="mx-auto px-3">
+				<div class="mt-3 mb-3 d-flex flex-column gap-3">
+
+				</div>
+			</div>
+		</main>
+	</div>
+	<!-- Search -->
+	<script type="text/javascript">
+		document.querySelector('#search-nav').oninput = function () {
+			let val = this.value.trim();
+			let elasticItems = document.querySelectorAll('.--elastic li');
+			if (val != '') {
+				elasticItems.forEach(function (elem) {
+					if (elem.innerText.search(val) == -1) {
+						elem.classList.add('--hide');
+						elem.innerHTML = elem.innerText;
+					}
+					else {
+						elem.classList.remove('--hide');
+						let str = elem.innerText;
+						elem.innerHTML = insertMark(str, elem.innerText.search(val), val.length);
+					}
+				});
+			}
+			else {
+				elasticItems.forEach(function (elem) {
+					elem.classList.remove('--hide');
+					elem.innerHTML = elem.innerText;
+				});
+			}
+		}
+		function insertMark(string, pos, len) {
+			return string.slice(0, pos) + '<mark>' + string.slice(pos, pos + len) + '<mark>' + string.slice(pos + len);
+		}
+	</script>
+	<!-- =========================== -->
+</body>
+
+</html>

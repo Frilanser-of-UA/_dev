@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.page {
+    height: 100%;
+}
+
+.container {
+    padding: 0 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.lists-wpr {
+    padding: 30px 0;
+    display: flex;
+    gap: 50px;
+    position: fixed;
+    width: 100%;
+    max-width: 1200px;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 0px;
+    min-height: 405px;
+    background-color: plum;
+}
+
+.list {
+    flex: 1 1 auto;
+    background-color: green;
+}
+
+.list.scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.list li {
+    list-style: none;
+    padding: 10px 0;
+}

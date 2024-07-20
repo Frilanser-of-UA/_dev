@@ -1,0 +1,136 @@
+html,
+body {
+    height: 100%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 70px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: green;
+    font-size: 18px;
+    opacity: 0;
+}
+
+main {
+    min-height: 100%;
+}
+
+footer {
+    height: 500px;
+    background-color: purple;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 48px;
+}
+
+section:nth-child(1) {
+    background-color: rgb(199, 179, 179);
+}
+
+section:nth-child(2) {
+    background-color: rgba(128, 128, 128, 0.726);
+}
+
+section:nth-child(3) {
+    background-color: rgb(161, 114, 114);
+}
+
+section:nth-child(4) {
+    background-color: yellow;
+}
+
+section:nth-child(5) {
+    background-color: yellowgreen;
+}
+
+section:nth-child(6) {
+    background-color: rgba(153, 205, 50, 0.61);
+}
+
+.box {
+
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    position: fixed;
+    z-index: 10;
+    left: 10px;
+    top: 150px;
+    opacity: 0;
+}
+
+.anim-item {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.anim-item .item {
+    background-color: black;
+    flex: 0 0 200px;
+    width: 200px;
+    height: 200px;
+    margin-right: 24px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.dc-page-nav {
+    position: fixed;
+    z-index: 5;
+    left: max(7px, (100% - 1268px)/2);
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    gap: 16px;
+    justify-items: center;
+    border-radius: 20px;
+    border: 1px solid black;
+    background-color: rgba(32, 32, 32, 0.6);
+}
+
+.dc-nav-dot {
+    /* display: inline-block; */
+    width: 8px;
+    height: 8px;
+    border: 1px solid white;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition:
+        transform 0.25s ease-out 0s,
+        background-color 0.25s ease-out 0s,
+        opacity 0.25s ease-out 0s;
+
+    /* &:not(:last-child) {
+        margin-bottom: 1rem;
+    } */
+
+
+}
+
+.dc-nav-dot--active {
+
+    background-color: white;
+    opacity: 1;
+    transform-origin: center;
+    transform: scale(1.25);
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position sticky </title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    header,footer{
+        text-align: center;
+        font-size: 20px;
+        padding: 5px;
+        height: 60px;
+        background: #888fe9;
+    }
+    section{
+        padding: 50px 0;
+    }
+    .container{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .wrap{
+        display: flex;
+        gap: 50px;
+    }
+
+    .left{
+        flex: 0 0 360px;
+        position: relative;
+    }
+    .left-content{
+        font-size: 20px;
+        color: #888fe9;
+        background: rgba(96, 247, 109, 0.7);
+        margin-top: 20px;
+      
+    }
+    img{
+            width: 100%;
+        }
+    .right{
+        height: 100%;
+    }
+    .right h2{
+        font-size: 36px;
+        color: gray;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        
+    }
+    .right p{
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+    .full{
+        height: 100vh;
+        background: #ebc9c9;
+    }
+    @media (min-width: 1366px){
+        .sticky {
+        position: fixed;
+        z-index: 5;
+}
+    }
+
+</style>
+<body>
+    <header>header</header>
+    <main>
+        <section>
+            <div class="container">
+                <div id="wrap" class="wrap">
+                    <div id="sticky" class="left">
+                        <div class="left-content">Липкий елемент
+                            <img src="https://i.ibb.co/56XhFj4/product-3.png" alt="product-3" border="0">
+                        </div>
+                     </div>
+                    <div class="right">
+                        <h2>Контент</h2>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="full"></section>
+    </main>
+    <footer>footer</footer>
+    <script>// ============== fixed block===========================
+        function getWindowWidth() {
+            return window.screen.width;
+        }
+        if (getWindowWidth() > 1365) {
+            (function () {
+                let a = document.querySelector('#sticky'), b = null, P = 0;
+                if (a) {
+                    window.addEventListener('scroll', Ascroll, false);
+                    document.body.addEventListener('scroll', Ascroll, false);
+                    function Ascroll() {
+                        if (b == null) {
+                            let Sa = getComputedStyle(a, ''), s = '';
+                            for (let i = 0; i < Sa.length; i++) {
+                                if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
+                                    s += Sa[i] + ': ' + Sa.getPropertyValue(Sa[i]) + '; '
+                                }
+                            }
+                            b = document.createElement('div');
+                            b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
+                            a.insertBefore(b, a.firstChild);
+                            let l = a.childNodes.length;
+                            for (let i = 1; i < l; i++) {
+                                b.appendChild(a.childNodes[1]);
+                            }
+                            a.style.height = b.getBoundingClientRect().height + 'px';
+                            a.style.padding = '0';
+                            a.style.border = '0';
+                        }
+                        let Ra = a.getBoundingClientRect(),
+                            R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('#wrap').getBoundingClientRect().bottom);  // селектор блока, при достижении нижнего края которого нужно открепить прилипающий элемент
+                        if ((Ra.top - P) <= 0) {
+                            if ((Ra.top - P) <= R) {
+                                b.className = 'stop';
+                                b.style.top = - R + 'px';
+                            } else {
+                                b.className = 'sticky';
+                                b.style.top = P + 'px';
+                            }
+                        } else {
+                            b.className = '';
+                            b.style.top = '';
+                        }
+                        window.addEventListener('resize', function () {
+                            a.children[0].style.width = getComputedStyle(a, '').width
+                        }, false);
+                    }
+                }
+        
+            })()
+        }
+        // ================================================
+        </script>
+</body>
+</html>

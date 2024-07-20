@@ -1,0 +1,77 @@
+//ОБЩИЕ ПАРАМЕТРЫ>========================================
+body {
+    line-height: 1;
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    background-color: $bg-body;
+    color: $mainColor;
+
+    &.lock {
+        // overflow: hidden;
+        // touch-action: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &::-webkit-scrollbar-track {
+            display: none;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            display: none;
+        }
+    }
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    // Прижимаем footer
+    > main {
+        flex: 1 1 auto;
+    }
+
+    // Фикс для слайдеров
+    > * {
+        min-width: 0;
+    }
+}
+hr {
+    height: 1px;
+    background-color: $gray-600;
+    width: 100%;
+}
+//ОБЩИЕ ПАРАМЕТРЫ>========================================
+@import "./null";
+@import "./containers";
+@import "./grid";
+
+.footer {
+    background: $linear;
+    padding: 25px;
+    font-size: 36px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+.header {
+    background: $black;
+    padding: 25px;
+    font-size: 36px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.page {
+    background-color: $gray-900;
+}
+h2 {
+    padding-bottom: 15px;
+    padding-top: 20px;
+    font-size: 28px;
+}
